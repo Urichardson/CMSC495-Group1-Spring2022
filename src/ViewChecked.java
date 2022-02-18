@@ -43,8 +43,10 @@ public class ViewChecked extends JPanel {
         // Creating Results Table. 
         final JTable checkedTbl = new JTable(checkedModel);
         final JScrollPane checkedScroll = new JScrollPane(checkedTbl);
-        checkedScroll.setPreferredSize(new Dimension(checkedTbl.getPreferredSize().width,checkedTbl.getRowHeight()*20));
-        checkedTbl.setSelectionModel(new ViewChecked.ForcedListSelectionModel());
+        checkedScroll.setPreferredSize(new Dimension(500,checkedTbl.getRowHeight()*20));
+        checkedTbl.getTableHeader().setPreferredSize(new Dimension(100, 32));
+        checkedTbl.setDefaultEditor(Object.class, null);
+        checkedTbl.setSelectionModel(new ForcedListSelectionModel());
         checkedTbl.getSelectionModel().addListSelectionListener(new ViewChecked.RowSelectionListener());
         
         // Example Book Entries for Results Table
@@ -69,22 +71,6 @@ public class ViewChecked extends JPanel {
             returnBtn.setEnabled(true);
         }  // end of method
     } // end of listener class
-    
-    // Class: Forced List Selection Model, created to enable only
-    // single row selections AND to disable row deselection.
-    private class ForcedListSelectionModel extends DefaultListSelectionModel {
-        public ForcedListSelectionModel () {
-            setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        } // end of method
-
-        @Override
-        public void clearSelection() {
-        } // end of method
-
-        @Override
-        public void removeSelectionInterval(int index0, int index1) {
-        } // end of method
-    } // end of model class
     
     // Class: Return Book Button Listener.
     private class ReturnBtnListener implements ActionListener {

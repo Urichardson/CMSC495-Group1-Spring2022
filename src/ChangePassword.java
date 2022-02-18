@@ -12,6 +12,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +26,7 @@ public class ChangePassword extends JPanel {
     private final JPasswordField newTxt = new JPasswordField();
     private final JPasswordField confTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
+    private final char[] correctPassword = { 'p', 'w' };
     
     // Constructor (Extends JPanel)
     ChangePassword() {
@@ -96,18 +98,18 @@ public class ChangePassword extends JPanel {
             // The if statement here is a skeleton and likely incorrect.
             // I assume we'll have to get a boolean from the database to see
             // if the input username/password got any matches.
-            
-            if ("Curr".equals(currTxt.getText())
-                && newTxt.getText().equals(confTxt.getText())) {
+
+            if (Arrays.equals(correctPassword, currTxt.getPassword())
+                && Arrays.equals(newTxt.getPassword(), confTxt.getPassword())) {
                     denialLbl.setText("Password has been successfully changed.");
                     clearFields();
             }
-            else if (!newTxt.getText().equals(confTxt.getText())) {
+            else if (!Arrays.equals(newTxt.getPassword(), confTxt.getPassword())) {
                 denialLbl.setText("<HTML>\"New Password\" does not match \"Confirm New Password\"."
                         + "<br>Please try again.</HTML>");
                 clearFields();
             }
-            else if (!"Curr".equals(currTxt.getText())) {
+            else if (!Arrays.equals(correctPassword, currTxt.getPassword())) {
                 denialLbl.setText("<HTML>\"Current Password\" is incorrect. "
                         + "<br>Please try again.</HTML>");
                 clearFields();

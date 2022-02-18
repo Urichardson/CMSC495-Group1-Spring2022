@@ -66,7 +66,7 @@ public class CheckOut extends JDialog {
         setVisible(true);
     } // end of constructor
     
-    // Class: Login Button Listener.
+    // Class: Confirm Button Listener.
     private class ConfirmBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

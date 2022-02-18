@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Arrays;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -28,6 +29,7 @@ public class Login extends JDialog {
     private final JTextField usernameTxt = new JTextField();
     private final JPasswordField passwordTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
+    private final char[] correctPassword = { 'p', 'w' };
     
     // Login Constructor
     Login() {
@@ -108,7 +110,7 @@ public class Login extends JDialog {
             // if the input username/password got any matches.
             
             if ("un".equals(usernameTxt.getText().trim())
-                && "pw".equals(passwordTxt.getText())) {
+                && Arrays.equals(correctPassword, passwordTxt.getPassword())) {
                 dispose();
             }
             else {

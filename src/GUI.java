@@ -42,6 +42,10 @@ public class GUI extends JFrame {
         viewCheckedItem.addActionListener(new ViewCheckedItemListener());
         changePwItem.addActionListener(new ChangePwItemListener());
         logoutItem.addActionListener(new LogoutItemListener());
+        listBooksItem.addActionListener(new ListBooksItemListener());
+        addBookItem.addActionListener(new AddBookItemListener());
+        // insert list users item listener
+        // insert add user item listener
         
         // Add Main Menu to Menu Bar
         mainMenu.add(browseBooksItem);
@@ -109,6 +113,26 @@ public class GUI extends JFrame {
             Login login = new Login();
         } // end of method
     } /// end of listener class
+    
+    // Class: List Books Menu Item Listener
+    private class ListBooksItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            mainPanel.add(new AdminBookList());
+            repaint();
+        } // end of method
+    } // end of listener class
+    
+    // Class: Add Book Menu Item Listener
+    private class AddBookItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            mainPanel.add(new AddBook());
+            repaint();
+        } // end of method
+    } // end of listener class
     
     // Method: clearGUI. Removes all GUI components except menu bar.
     private void clearGUI() {

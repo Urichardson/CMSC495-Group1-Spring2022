@@ -59,6 +59,7 @@ public class BrowseBooks extends JPanel {
         final JTable resultsTbl = new JTable(resultsModel);
         final JScrollPane resultsScroll = new JScrollPane(resultsTbl);
         resultsScroll.setPreferredSize(new Dimension(resultsTbl.getPreferredSize().width,resultsTbl.getRowHeight()*17));
+        resultsTbl.setDefaultEditor(Object.class, null);
         resultsTbl.setSelectionModel(new ForcedListSelectionModel());
         resultsTbl.getSelectionModel().addListSelectionListener(new RowSelectionListener());
         
@@ -122,22 +123,6 @@ public class BrowseBooks extends JPanel {
             checkoutBtn.setEnabled(true);
         }  // end of method
     } // end of listener class
-    
-    // Class: Forced List Selection Model, created to enable only
-    // single row selections AND to disable row deselection.
-    private class ForcedListSelectionModel extends DefaultListSelectionModel {
-        public ForcedListSelectionModel () {
-            setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        } // end of method
-
-        @Override
-        public void clearSelection() {
-        } // end of method
-
-        @Override
-        public void removeSelectionInterval(int index0, int index1) {
-        } // end of method
-    } // end of model class
     
     // Class: Search Button Listener.
     private class SearchBtnListener implements ActionListener {
