@@ -1,5 +1,5 @@
 /*
-* File: AddBook.java
+* File: AdminAddBook.java
 * Author: Group 1 (John Kucera, Jason Martin, Ursula Richardson)
 * Creation Date: February 18, 2022
 * Purpose: 
@@ -17,8 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-// Class: AddBook extends JPanel. Is the Add Book menu.
-public class AddBook extends JPanel {
+// Class: AdminAddBook extends JPanel. Is the Add Book menu.
+public class AdminAddBook extends JPanel {
     
     // Component Initialization
     JTextField titleTxt = new JTextField("title1");
@@ -29,7 +29,7 @@ public class AddBook extends JPanel {
     JTextField availTxt = new JTextField("1");
     
     // Constructor (extends JPanel)
-    public AddBook() {
+    public AdminAddBook() {
         JPanel infoPanel = new JPanel();
         JLabel titleLbl = new JLabel("Title: ");
         JLabel authorLbl = new JLabel("Author: ");

@@ -9,6 +9,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
 public class GUI extends JFrame {
     
     // Component Initialization
-    private final JPanel mainPanel = new JPanel();
+    public final JPanel mainPanel = new JPanel();
     
     // Constructor (Extends JFrame)
     public GUI() {
@@ -44,8 +45,8 @@ public class GUI extends JFrame {
         logoutItem.addActionListener(new LogoutItemListener());
         listBooksItem.addActionListener(new ListBooksItemListener());
         addBookItem.addActionListener(new AddBookItemListener());
-        // insert list users item listener
-        // insert add user item listener
+        listUsersItem.addActionListener(new ListUsersItemListener());
+        addUserItem.addActionListener(new AddUserItemListener());
         
         // Add Main Menu to Menu Bar
         mainMenu.add(browseBooksItem);
@@ -64,6 +65,9 @@ public class GUI extends JFrame {
         
         // Add Components to GUI
         setJMenuBar(menuBar);
+        mainPanel.add(new JLabel("<HTML><br><br><br><br><br><br><br><br><br><br>"
+                + "Welcome to the Library Management Program Tool! Please select"
+                + " an item from the menu bar.</HTML>"));
         add(mainPanel);
         
         // Edit JFrame characteristics
@@ -129,7 +133,27 @@ public class GUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             clearGUI();
-            mainPanel.add(new AddBook());
+            mainPanel.add(new AdminAddBook());
+            repaint();
+        } // end of method
+    } // end of listener class
+    
+    // Class: List Users Menu Item Listener
+    private class ListUsersItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            mainPanel.add(new AdminUserList());
+            repaint();
+        } // end of method
+    } // end of listener class
+    
+    // Class: Add User Menu Item Listener
+    private class AddUserItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            mainPanel.add(new AdminAddUser());
             repaint();
         } // end of method
     } // end of listener class
