@@ -12,24 +12,25 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+// Class: ChangePassword extends JPanel. Is the Change Password Menu.
 public class ChangePassword extends JPanel {
+    
     // Component Initialization
-    private final JLabel titleLbl = new JLabel("<HTML><U>Change Password</U></HTML>");
     private final JTextField currTxt = new JPasswordField();
     private final JTextField newTxt = new JPasswordField();
     private final JTextField confTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
     
+    // Constructor (Extends JPanel)
     ChangePassword() {
         // Creating Title Panel
+        final JLabel titleLbl = new JLabel("<HTML><U>Change Password</U></HTML>");
         final JPanel titlePanel = new JPanel();
         titlePanel.add(titleLbl);
         
@@ -87,14 +88,9 @@ public class ChangePassword extends JPanel {
         fullPanel.add(titlePanel, BorderLayout.PAGE_START);
         fullPanel.add(credentialsPanel, BorderLayout.CENTER);
         add(fullPanel);
-    }
+    } // end of constructor
     
-    private void clearFields() {
-        currTxt.setText("");
-        newTxt.setText("");
-        confTxt.setText("");
-    }
-    
+    // Class: Confirm Button Listener.
     private class ConfirmBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -117,6 +113,14 @@ public class ChangePassword extends JPanel {
                         + "<br>Please try again.</HTML>");
                 clearFields();
             }
-        }
-    }
-}
+        } // end of method
+    } // end of listener class
+    
+    // Method: clearFields. Removes all text input in text fields.
+    private void clearFields() {
+        currTxt.setText("");
+        newTxt.setText("");
+        confTxt.setText("");
+    } // end of method
+    
+} // end of class

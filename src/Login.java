@@ -7,9 +7,6 @@
 
 // import necessary Java classes
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -25,10 +21,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+// Class: Login extends JDialog. Is the Login Menu Dialog.
 public class Login extends JDialog {
     
     // Component Initialization
-    private final JLabel titleLbl = new JLabel("<HTML><U>User Log In</U></HTML>");
     private final JTextField usernameTxt = new JTextField();
     private final JTextField passwordTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
@@ -36,6 +32,7 @@ public class Login extends JDialog {
     // Login Constructor
     Login() {
         // Creating Title Panel
+        final JLabel titleLbl = new JLabel("<HTML><U>User Log In</U></HTML>");
         final JPanel titlePanel = new JPanel();
         titlePanel.add(titleLbl);
         
@@ -84,21 +81,24 @@ public class Login extends JDialog {
         fullPanel.add(credentialsPanel, BorderLayout.CENTER);
         add(fullPanel);
         
-        // Edit JDialog Characteristics
-        setModal(true);
+        // JDialog Listener: Terminate program on close.
         addWindowListener(new WindowAdapter() { 
             @Override
             public void windowClosing(WindowEvent e) { 
                 System.exit(0);
             }
-          });
+        });
+        
+        // Edit JDialog Characteristics
+        setModal(true);
         setTitle("Library Management Program - Login");
         setResizable(false);
         setSize(300,250);
         setLocationRelativeTo(null);
         setVisible(true);
-    }
+    } // end of constructor
     
+    // Class: Login Button Listener.
     private class LoginBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -107,8 +107,8 @@ public class Login extends JDialog {
             // I assume we'll have to get a boolean from the database to see
             // if the input username/password got any matches.
             
-            if ("Username".equals(usernameTxt.getText().trim())
-                && "Password".equals(passwordTxt.getText())) {
+            if ("un".equals(usernameTxt.getText().trim())
+                && "pw".equals(passwordTxt.getText())) {
                 dispose();
             }
             else {
@@ -117,6 +117,6 @@ public class Login extends JDialog {
                 usernameTxt.setText("");
                 passwordTxt.setText("");
             }
-        }
-    }
-}
+        } // end of method
+    } // end of listener class
+} // end of class

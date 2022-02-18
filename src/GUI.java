@@ -8,20 +8,19 @@
 // import necessary Java classes
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Box;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+// Class: GUI extends JFrame. Is the main GUI.
 public class GUI extends JFrame {
     
     // Component Initialization
-    private JPanel mainPanel = new JPanel();
+    private final JPanel mainPanel = new JPanel();
     
-    // Constructor (extends JFrame)
+    // Constructor (Extends JFrame)
     public GUI() {
         // Create Menu Bar with Main Menu Items
         final JMenuBar menuBar = new JMenuBar();
@@ -39,8 +38,8 @@ public class GUI extends JFrame {
         final JMenuItem addUserItem = new JMenuItem("Add User");
         
         // Adding listeners
-        //browse books listener
-        //view checked books listener
+            // insert browse books listener
+            // insert view checked books listener
         changePwItem.addActionListener(new ChangePwItemListener());
         logoutItem.addActionListener(new LogoutItemListener());
         
@@ -70,38 +69,37 @@ public class GUI extends JFrame {
         setSize(800,500);
         setLocationRelativeTo(null);
         setVisible(true);
-    }
-    
-    // Method: Clear GUI of all components besides menu bar.
-    private void clearGUI() {
-        mainPanel.removeAll();
-        mainPanel.revalidate();
-        mainPanel.repaint();
-    }
-    
-    // Log Out Menu Item Listener
+    } // end of constructor
+
+    // Class: Log Out Menu Item Listener
     private class LogoutItemListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             clearGUI();
             Login login = new Login();
-        }
-    }
+        } // end of method
+    } /// end of listener class
     
+    // Class: Change Password Menu Item Listener
     private class ChangePwItemListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             clearGUI();
             mainPanel.add(new ChangePassword());
             repaint();
-        }
-        
-    }
+        } // end of method
+    } // end of listener class
+    
+    // Method: clearGUI. Removes all GUI components except menu bar.
+    private void clearGUI() {
+        mainPanel.removeAll();
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    } // end of method
     
     // Method: main. Call constructor to create GUI.
     public static void main(String[] args) {
         GUI gui = new GUI();
         Login login = new Login();
-    }
-}
+    } // end of main method
+} // end of class
