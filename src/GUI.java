@@ -38,8 +38,8 @@ public class GUI extends JFrame {
         final JMenuItem addUserItem = new JMenuItem("Add User");
         
         // Adding listeners
-            // insert browse books listener
-            // insert view checked books listener
+        browseBooksItem.addActionListener(new BrowseBooksItemListener());
+        viewCheckedItem.addActionListener(new ViewCheckedItemListener());
         changePwItem.addActionListener(new ChangePwItemListener());
         logoutItem.addActionListener(new LogoutItemListener());
         
@@ -71,14 +71,25 @@ public class GUI extends JFrame {
         setVisible(true);
     } // end of constructor
 
-    // Class: Log Out Menu Item Listener
-    private class LogoutItemListener implements ActionListener {
+    // Class: Browse Books Menu Item Listener
+    private class BrowseBooksItemListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             clearGUI();
-            Login login = new Login();
+            mainPanel.add(new BrowseBooks());
+            repaint();
         } // end of method
-    } /// end of listener class
+    } // end of listener class
+    
+    // Class: Browse Books Menu Item Listener
+    private class ViewCheckedItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            mainPanel.add(new ViewChecked());
+            repaint();
+        } // end of method
+    } // end of listener class
     
     // Class: Change Password Menu Item Listener
     private class ChangePwItemListener implements ActionListener {
@@ -89,6 +100,15 @@ public class GUI extends JFrame {
             repaint();
         } // end of method
     } // end of listener class
+    
+    // Class: Log Out Menu Item Listener
+    private class LogoutItemListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            clearGUI();
+            Login login = new Login();
+        } // end of method
+    } /// end of listener class
     
     // Method: clearGUI. Removes all GUI components except menu bar.
     private void clearGUI() {

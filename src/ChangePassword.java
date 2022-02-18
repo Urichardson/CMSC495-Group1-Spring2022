@@ -16,23 +16,22 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 // Class: ChangePassword extends JPanel. Is the Change Password Menu.
 public class ChangePassword extends JPanel {
     
     // Component Initialization
-    private final JTextField currTxt = new JPasswordField();
-    private final JTextField newTxt = new JPasswordField();
-    private final JTextField confTxt = new JPasswordField();
+    private final JPasswordField currTxt = new JPasswordField();
+    private final JPasswordField newTxt = new JPasswordField();
+    private final JPasswordField confTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
     
     // Constructor (Extends JPanel)
     ChangePassword() {
-        // Creating Title Panel
-        final JLabel titleLbl = new JLabel("<HTML><U>Change Password</U></HTML>");
-        final JPanel titlePanel = new JPanel();
-        titlePanel.add(titleLbl);
+        // Creating Header Panel
+        final JLabel headerLbl = new JLabel("<HTML><U>Change Password</U></HTML>");
+        final JPanel headerPanel = new JPanel();
+        headerPanel.add(headerLbl);
         
         // Creating Credentials Panel and Components
         final JPanel credentialsPanel = new JPanel();
@@ -85,7 +84,7 @@ public class ChangePassword extends JPanel {
         
         // Creating Full Panel and adding all panels
         final JPanel fullPanel = new JPanel(new BorderLayout());
-        fullPanel.add(titlePanel, BorderLayout.PAGE_START);
+        fullPanel.add(headerPanel, BorderLayout.PAGE_START);
         fullPanel.add(credentialsPanel, BorderLayout.CENTER);
         add(fullPanel);
     } // end of constructor

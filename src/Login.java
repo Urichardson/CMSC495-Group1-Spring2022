@@ -26,15 +26,15 @@ public class Login extends JDialog {
     
     // Component Initialization
     private final JTextField usernameTxt = new JTextField();
-    private final JTextField passwordTxt = new JPasswordField();
+    private final JPasswordField passwordTxt = new JPasswordField();
     private final JLabel denialLbl = new JLabel(" ");
     
     // Login Constructor
     Login() {
-        // Creating Title Panel
-        final JLabel titleLbl = new JLabel("<HTML><U>User Log In</U></HTML>");
-        final JPanel titlePanel = new JPanel();
-        titlePanel.add(titleLbl);
+        // Creating Header Panel
+        final JLabel headerLbl = new JLabel("<HTML><U>User Log In</U></HTML>");
+        final JPanel headerPanel = new JPanel();
+        headerPanel.add(headerLbl);
         
         // Creating Credentials Panel and Components
         final JPanel credentialsPanel = new JPanel();
@@ -77,7 +77,7 @@ public class Login extends JDialog {
         
         // Creating Full Panel and adding all panels
         final JPanel fullPanel = new JPanel(new BorderLayout());
-        fullPanel.add(titlePanel, BorderLayout.PAGE_START);
+        fullPanel.add(headerPanel, BorderLayout.PAGE_START);
         fullPanel.add(credentialsPanel, BorderLayout.CENTER);
         add(fullPanel);
         
