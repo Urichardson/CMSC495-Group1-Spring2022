@@ -167,6 +167,8 @@ public class GUI extends JFrame {
     
     // Method: main. Call constructor to create GUI.
     public static void main(String[] args) {
+        
+        DatabaseInitialization.initialize_database();
         GUI gui = new GUI();
         Login login = new Login();
     } // end of main method
